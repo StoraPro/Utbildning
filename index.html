@@ -1,190 +1,167 @@
 <!DOCTYPE html>
-
 <html lang="sv">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Elitmålvakt</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Elitmålvakt</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
+<style>
+/* Base Theme */
+:root {
+  --primary: #000;
+  --accent: #e0e0e0;
+  --bg: #ffffff;
+  --font-main: "Inter", Arial, sans-serif;
+}
 
-  <!-- Google Fonts -->
+body {
+  margin: 0;
+  font-family: var(--font-main);
+  background: var(--bg);
+  color: var(--primary);
+  line-height: 1.6;
+}
 
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
+/* Header */
+header {
+  padding: 6rem 2rem;
+  text-align: center;
+}
 
-  <style>
-    /* Base Theme */
-    :root {
-      --primary: #000000;
-      --accent: #e0e0e0;
-      --bg: #ffffff;
-      --font-main: "Inter", Arial, sans-serif;
-    }
+header h1 {
+  font-size: 3rem;
+  margin-bottom: 0.5rem;
+}
 
-    body {
-      margin: 0;
-      font-family: var(--font-main);
-      background: var(--bg);
-      color: var(--primary);
-      line-height: 1.6;
-    }
+header p {
+  font-size: 1.2rem;
+  max-width: 600px;
+  margin: 0 auto 1.5rem;
+  opacity: 0.8;
+}
 
-    /* Header */
-    header {
-      padding: 6rem 2rem;
-      text-align: center;
-      background: url('header.jpg') center/cover no-repeat;
-      color: white;
-      position: relative;
-    }
+/* Sections */
+.section {
+  padding: 4rem 2rem;
+  max-width: 1000px;
+  margin: auto;
+}
 
-    header::after {
-      content: "";
-      position: absolute;
-      top: 0; left: 0; right: 0; bottom: 0;
-      background-color: rgba(0,0,0,0.5);
-      z-index: 0;
-    }
+.section h2 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
 
-    header h1, header p, header a {
-      position: relative;
-      z-index: 1;
-    }
+/* Profile Grid 2x2 */
+.profiles {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* 2 kolumner */
+  gap: 2rem;
+  margin-top: 2rem;
+}
 
-    header h1 {
-      font-size: 3rem;
-      margin-bottom: 0.5rem;
-    }
+.profile-card {
+  padding: 1rem;
+  border-radius: 1rem;
+  background: var(--accent);
+  text-align: center;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  cursor: pointer;
+}
 
-    header p {
-      font-size: 1.2rem;
-      max-width: 600px;
-      margin: 0 auto 1.5rem;
-      opacity: 0.9;
-    }
+.profile-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+}
 
-    /* Sections */
-    .section {
-      padding: 4rem 2rem;
-      max-width: 1000px;
-      margin: auto;
-    }
+.profile-card img {
+  width: 100%;
+  height: 250px;          /* fixad höjd för jämn layout */
+  object-fit: contain;     /* visar hela bilden utan hård beskärning */
+  object-position: center; /* centrera bilden */
+  border-radius: 0.5rem;
+  margin-bottom: 1rem;
+  background-color: #f0f0f0; /* fyll tom yta */
+}
 
-    .section h2 {
-      font-size: 2rem;
-      margin-bottom: 1rem;
-    }
+/* Buttons */
+.btn {
+  display: inline-block;
+  padding: 0.75rem 1.5rem;
+  background: black;
+  color: white;
+  border-radius: 0.5rem;
+  text-decoration: none;
+  transition: background 0.25s ease, transform 0.25s ease;
+}
 
-    /* Profile Grid 2x2 */
-    .profiles {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 2rem;
-      margin-top: 2rem;
-    }
+.btn:hover {
+  background: #333;
+  transform: translateY(-3px);
+}
 
-    .profile-card {
-      padding: 1rem;
-      border-radius: 1rem;
-      background: var(--accent);
-      text-align: center;
-      transition: transform 0.25s ease, box-shadow 0.25s ease;
-      cursor: pointer;
-    }
+/* Footer */
+footer {
+  text-align: center;
+  padding: 3rem 1rem;
+  font-size: 0.9rem;
+  opacity: 0.7;
+  background-color: var(--accent);
+}
 
-    .profile-card:hover {
-      transform: translateY(-6px);
-      box-shadow: 0 8px 20px rgba(0,0,0,0.15);
-    }
-
-    .profile-card img {
-      width: 100%;
-      height: 250px;
-      object-fit: cover;
-      border-radius: 0.5rem;
-      margin-bottom: 1rem;
-    }
-
-    /* Buttons */
-    .btn {
-      display: inline-block;
-      padding: 0.75rem 1.5rem;
-      background: black;
-      color: white;
-      border-radius: 0.5rem;
-      text-decoration: none;
-      transition: background 0.25s ease, transform 0.25s ease;
-    }
-
-    .btn:hover {
-      background: #333;
-      transform: translateY(-3px);
-    }
-
-    /* Footer */
-    footer {
-      text-align: center;
-      padding: 3rem 1rem;
-      font-size: 0.9rem;
-      opacity: 0.7;
-      background-color: var(--accent);
-      margin-top: 2rem;
-    }
-
-    /* Responsive */
-    @media (max-width: 600px) {
-      .profiles {
-        grid-template-columns: 1fr;
-      }
-      header h1 {
-        font-size: 2.3rem;
-      }
-      .section {
-        padding: 3rem 1.5rem;
-      }
-    }
-  </style>
-
+/* Responsive */
+@media (max-width: 600px) {
+  .profiles {
+    grid-template-columns: 1fr; /* en kolumn på mobiler */
+  }
+  header h1 {
+    font-size: 2.3rem;
+  }
+  .section {
+    padding: 3rem 1.5rem;
+  }
+}
+</style>
 </head>
 <body>
 
-  <header>
-    <h1>Elitmålvakt</h1>
-    <p>Fokus på målvakter ur ett helhetsperspektiv. Utbildningen är framtagen med Sveriges främsta elitmålvakter.</p>
-    <a href="#introduktion" class="btn">Starta</a>
-  </header>
+<header>
+  <h1>Elitmålvakt</h1>
+  <p>Fokus på målvakter ur ett helhetsperspektiv. Utbildningen är framtagen med Sveriges främsta elitmålvakter.</p>
+  <a href="#introduktion" class="btn">Starta</a>
+</header>
 
-  <section class="section" id="introduktion">
-    <h2>01 Introduktion</h2>
-    <p>Att vara målvakt handlar om att rädda bollen - hur man gör det är mindre viktigt. De främsta målvakterna i världen delar många färdigheter och vanor. Dessa beteenden är skillnaden på att vara bra eller bäst. Utbildningsmaterialet är framtaget tillsammans med Sveriges bästa målvakter på dam- och herrsidan och hjälper dig att förstå vilka färdigheter som krävs för att nå toppen och hur du kan utveckla dem i praktiken.</p>
-  </section>
+<section class="section" id="introduktion">
+  <h2>01 Introduktion</h2>
+  <p>Att vara målvakt handlar om att rädda bollen - hur man gör det är mindre viktigt. De främsta målvakterna i världen delar många färdigheter och vanor. Dessa beteenden är skillnaden på att vara bra eller bäst. Utbildningsmaterialet är framtaget tillsammans med Sveriges bästa målvakter på dam- och herrsidan och hjälper dig att förstå vilka färdigheter som krävs för att nå toppen och hur du kan utveckla dem i praktiken.</p>
+</section>
 
-  <section class="section">
-    <h2>Profiler</h2>
-    <img src="promask1.jpg" alt="promask1" />
-    <div class="profiles">
-      <div class="profile-card">
-        <img src="mans_parsjo.jpg" alt="måns parsjö" />
-        <h3>Måns Parsjö</h3>
-      </div>
-      <div class="profile-card">
-        <img src="frida_gortz.jpg" alt="frida görtz" />
-        <h3>Frida Görtz</h3>
-      </div>
-      <div class="profile-card">
-        <img src="kalle_bending.jpg" alt="kalle bending" />
-        <h3>Kalle Bending</h3>
-      </div>
-      <div class="profile-card">
-        <img src="lovisa_hedin.jpg" alt="lovisa hedin" />
-        <h3>Lovisa Hedin</h3>
-      </div>
+<section class="section">
+  <h2>Profiler</h2>
+  <div class="profiles">
+    <div class="profile-card">
+      <img src="mans_parsjo.jpg" alt="måns parsjö">
+      <h3>Måns Parsjö</h3>
     </div>
-  </section>
+    <div class="profile-card">
+      <img src="frida_gortz.jpg" alt="frida görtz">
+      <h3>Frida Görtz</h3>
+    </div>
+    <div class="profile-card">
+      <img src="kalle_bending.jpg" alt="kalle bending">
+      <h3>Kalle Bending</h3>
+    </div>
+    <div class="profile-card">
+      <img src="lovisa_hedin.jpg" alt="lovisa hedin">
+      <h3>Lovisa Hedin</h3>
+    </div>
+  </div>
+</section>
 
-  <footer>
-    © 2025 Elitmålvakt — Utbildningsmaterial
-  </footer>
+<footer>
+  © 2025 Elitmålvakt — Utbildningsmaterial
+</footer>
 
 </body>
 </html>
-
 
